@@ -224,7 +224,29 @@
             var testythingy = {0:'<img src="http://apps.mypalmbeachpost.com/eats/static/imghero/1.jpg">', 1:'<img src="http://www.chipshield.com/wp-content/uploads/2015/06/placeholder1.jpg">',2:'<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>',3:'<h1><font size="300%">HEY!</font></h1>'};
             graphic.select('div.graphictarget').html(testythingy[response.index]);
             //function drawDefaultChart(){chart=new Highcharts.Chart(defaultOptions)}var defaultOptions={};drawDefaultChart(),$("#resetChart").on("click",function(t){t.preventDefault(),chart.destroy(),drawDefaultChart()});
-            
+Highcharts.chart('container', {
+    data: {
+        table: 'datatable'
+    },
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Data extracted from a HTML table in the page'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+});            
             
 		}
 
