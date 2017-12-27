@@ -162,7 +162,7 @@
 			<div class='step' data-step='2'>
 				<p>STEP 2</p>
 			</div>
-			<div class='step' data-step='3'>
+			<div class='step' data-step='300'>
 				<p>STEP 3</p>
 			</div>
 			<div class='step' data-step='4'>
@@ -219,7 +219,11 @@
 				return i === response.index;
 			})
 
-			// update graphic based on step
+            var stepname = d3.select('.is-active').attr("data-step");
+            console.log('Index ' + response.index + ' is stepname ' + stepname);
+
+
+    // update graphic based on step
 			// graphic.select('div.graphictarget').text(response.index + 1);
             var testythingy = {0:'<img src="http://apps.mypalmbeachpost.com/eats/static/imghero/1.jpg">', 1:'<img src="http://www.chipshield.com/wp-content/uploads/2015/06/placeholder1.jpg">',2:'<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>',3:'<h1><font size="300%">HEY!</font></h1>'};
             graphic.select('div.graphictarget').html(testythingy[response.index]);
