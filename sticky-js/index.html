@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Scrollama Demo: Sticky JS</title>
+	<title>Epidemic</title>
 	<meta name="description" content="Scrollama Demo: Sticky JS">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,8 +50,6 @@
 		   	</div> <!-- end row --> 
 		   </div> <!-- end home-content-tablecell --> 		   
 		</div> <!-- end home-content-table -->
-
-		
    
    </section> <!-- end home -->
 	<div class="row">
@@ -64,231 +62,73 @@
 			<div class='step' data-step='10'>
 				<p>Between 2001 and 2010, Florida’s refusal to regulate pill mills created a pipeline of illicit oxycodone and other pills to users and traffickers across the United States.</p>
 			</div>
-			<div class='step' data-step='20'>
+			<div class='step' data-step='20' >
 				<p>In the first half of 2010, drug distributors shipped 40.8 million oxycodone pills to Florida doctors.</p><br>
-				<div class="fade"><p>Every other state combined got only 4.5 million.</p></div>
+				<div id="fade1"><p>Every other state combined got only 4.5 million.</p></div>
 			</div>
-			<div class='step' data-step='321.5'>
-				<p>Every other state combined got only 4.5 million.</p>
+
+			
+			<div class='step full-width' data-step='40' >
+				<p>Florida pill mills sold the oxycodone to users and traffickers from other states.<br><br>
+   			
+				
+			Other states cracked down on their pill mill problems.<br><br><br>
+			
+				Florida didn't.<br><br><br>
+				
+				As long as Florida pill mills stayed open, oxycodone deaths kept rising, here and in other states.
+			</p>		</div>
+			
+
+			<div class='step full-width' data-step='50'>
+				<p>In 2010, The Drug Enforcement Administration reported Florida pill mills were spreading oxycodone in the <span id=region1>Southeast,</span><span id=region2> Great Lakes,</span> <span id=region3>Northeast and</span> <span id=region4>Middle Atlantic regions - </span><span id=region5>virtually every state east of the Mississippi.</span> </p> <br><img src="../sticky-js/finals maps/map/black-base.png">
+
 			</div>
-			<div class='step' data-step='40'>
-				<p>STEP 4</p>
+
+
+			<div class='step full-width' data-step='60'>
+				<p>A national oxycodone ring even bought South Florida pills to sell in <span id=region1>Denver,</span> <span id=region2>Salt Lake City,</span> <span id=region3>Washington,</span><span id=region4> Oregon,</span> <span id=region5>Texas and</span> <span id=region6>Alaska.</span></p><img src="../sticky-js/finals maps/map/SW+GL+NE+MA.png">
+
 			</div>
-		</div>
-		
-	</section>
-	</div> <!--end of row-->
+
+
+           <div class='step full-width' data-step='30' width='100%'>
+				<p class="lead">In 2011, after years of ignoring the crisis, Florida started arresting doctors, cracking down on bogus clinics and tracking oxycodone and other opioid prescriptions.
+			    </p> <p>Oxycodone became harder to get. People began switching to a much cheaper, easier-to-get and equally powerful substitute:</p><div id="fade"><center><h1>Heroin</h1></center><img></div>	
+			    </div>
+
+          
+              <div class='step full-width' data-step='70' >
+				<p class="lead">Why would people switch from a prescription drug to a black-market street drug? <br>
+				<span id=region2>The molecular structure of oxycodone and heroin are nearly identical.</span></p>
+
+				<span id=region5><img></span>
+	
+			  </div>
+			
+
+
+			</div>  <!-- end of scrolltext -->
+			</section> <!-- end of scroll -->
+</div>
+<!-- end of row -->
+
+
+			
+	
+
+	
 	<section id='outro'></section>
 	<div class='debug'></div>
-	<script src='../d3.v4.min.js'></script>
-	<script src='../stickyfill.min.js'></script>
-	<script src='../scrollama.min.js'></script>
-	<script>
-		// using d3 for convenience
-		var container = d3.select('#scroll');
-		var graphic = container.select('.scroll__graphic');
-		var text = container.select('.scroll__text');
-		var step = text.selectAll('.step');
-        var fade = text.selectAll('.fade');
-		// initialize the scrollama
-		var scroller = scrollama();
+	<script src='../js/d3.v4.min.js'></script>
+	<script src='../js/stickyfill.min.js'></script>
+	<script src='../js/scrollama.min.js'></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src='../js/sections.js'></script>
 
-		// generic window resize listener event
-		function handleResize() {
-			// 1. update height of step elements
-			var stepHeight = Math.floor(window.innerHeight * 0.75);
-			step.style('height', stepHeight + 'px');
-
-			// 2. update width/height of graphic element
-			var bodyWidth = d3.select('body').node().offsetWidth;
-
-			var graphicMargin = 16 * 4;
-			var textWidth = text.node().offsetWidth;
-			var graphicWidth = container.node().offsetWidth - textWidth - graphicMargin;
-			var graphicHeight = Math.floor(window.innerHeight/2)
-			var graphicMarginTop = Math.floor(graphicHeight/2)
-
-			graphic
-				.style('width', graphicWidth + 'px')
-				.style('height', graphicHeight + 'px')
-				.style('top', graphicMarginTop + 'px');
-
-
-			// 3. tell scrollama to update new element dimensions
-			scroller.resize();
-		}
-
-		// scrollama event handlers
-		function handleStepEnter(response) {
-			// response = { element, direction, index }
-
-			// add color to current step only
-			step.classed('is-active', function (d, i) {
-				return i === response.index;
-			})
-            fade.classed('is-active', function (d, i) {
-				return i === response.index;
-			})
-			// update graphic based on step
-			//graphic.select('img').attr("src",+ response.index +".jpg");
-
-  
-		 // FROM MIKE ↓
-			 var stepname = response.element.getAttribute("data-step")
-
-
-switch(stepname){
-
-        case '10': 
-            graphic.select('div.graphictarget').html('<img src="https://www.ancestry.com/wiki/images/1/1a/Flordia_sil.png">');
-        break
-        case '321.5': 
-            graphic.select('div.graphictarget').html('<img src="http://www.chipshield.com/wp-content/uploads/2015/06/placeholder1.jpg">');
-        break
-        case '20': 
-            graphic.select('div.graphictarget').html('<div id="container1" style="min-width: 100%; height: 100%; margin: 0 auto"></div>');
-            Highcharts.chart('container1', {
-				    chart: {
-				       type: 'column',
-				       backgroundColor: '#2a2a2a'
-				        
-				    },
-				    title: {
-				        text: ''
-				    },
-				    subtitle: {
-				        text: ''
-				    },
-				    xAxis: {
-				        categories: [
-				            'Florida',
-				            "Rest of the us"
-				        ],
-				        
-				    },
-				    yAxis: {
-				        min: 0,
-				        title: {
-				            text: 'No. Of Pills (Millions)'
-				        },
-				         gridLineWidth: 0
-				    },
-				    tooltip: {
-				        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-				        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-				            '<td style="padding:0"><b>{point.y:.1f} million</b></td></tr>',
-				        footerFormat: '</table>',
-				        shared: true,
-				        useHTML: true
-				    },
-				    plotOptions: {
-				    
-				  series: {
-				  borderWidth: 0,  
-				  pointPadding: 0.25
-				  },
-				        
-				  column: {
-				  colorByPoint: true,
-				   pointpadding: 0,
-				   borderWidth: 0
-				   }   
-				  
-				  
-				       
-				    },
-				            
-				    colors: [
-				                '#9370db',
-				                '#70b8db',
-				                
-				            ],
-				    series: [{
-				        name: 'Pills',
-				        data: [40.8, 4.5]
-
-				    }],
-
-
-									 navigation: {
-			        buttonOptions: {
-			            enabled: false
-			        }
-			    }
-				});
-
-
-        break
-        case '40': 
-            graphic.select('div.graphictarget').html('<h1><font size="300%">HEY!</font></h1>');
-        break
-
-
-        
-        /*
-        case 'something':
-            graphic.select('div.graphictarget').html('some cool tags n stuff');
-            some cool Javascripty stuff here
-        break
-        
-        */		
-
-
-
-          // FROM MIKE ↑
-		         } 	
-		}
-
-		function handleContainerEnter(response) {
-			// response = { direction }
-		}
-
-		function handleContainerExit(response) {
-			// response = { direction }
-		}
-
-		function setupStickyfill() {
-			d3.selectAll('.sticky').each(function () {
-				Stickyfill.add(this);
-			});
-		}
-
-		function init() {
-			setupStickyfill();
-
-			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
-			handleResize();
-
-			// 2. setup the scroller passing options
-			// this will also initialize trigger observations
-			// 3. bind scrollama event handlers (this can be chained like below)
-			scroller.setup({
-				container: '#scroll',
-				graphic: '.scroll__graphic',
-				text: '.scroll__text',
-				step: '.scroll__text .step',
-				debug: true,
-				offset: 0.33,
-			})
-				.onStepEnter(handleStepEnter)
-				.onContainerEnter(handleContainerEnter)
-				.onContainerExit(handleContainerExit);
-
-			// setup resize event
-			window.addEventListener('resize', handleResize);
-		}
-
-		// kick things off
-		init();
-	</script>
-
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/data.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-
-    
+   
 </body>
 
 </html>

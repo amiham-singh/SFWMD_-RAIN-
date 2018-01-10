@@ -29,47 +29,6 @@
  *  01. webfonts and iconfonts - (_document-setup)
  *
  * ------------------------------------------------------------------- */
-@import url("font-awesome/css/font-awesome.min.css");
-@import url("windows10/windows10.css");
-
-/* montserrat */
-@font-face {
-	font-family: "montserrat-regular";
-	src: url("../fonts/montserrat/montserrat-regular-webfont.woff2") format("woff2"), 
-	     url("../fonts/montserrat/montserrat-regular-webfont.woff") format("woff");
-	font-style: normal;
-	font-weight: normal;
-}
-@font-face {
-	font-family: "montserrat-bold";
-	src: url("../fonts/montserrat/montserrat-bold-webfont.woff2") format("woff2"), 
-	     url("../fonts/montserrat/montserrat-bold-webfont.woff") format("woff");
-	font-style: normal;
-	font-weight: normal;
-}
-
-/* libre baskerville */
-@font-face {
-	font-family: "librebaskerville-regular";
-	src: url("../fonts/librebaskerville/librebaskerville-regular-webfont.woff2") format("woff2"), 
-	     url("../fonts/librebaskerville/librebaskerville-regular-webfont.woff") format("woff");
-	font-style: normal;
-	font-weight: normal;
-}
-@font-face {
-	font-family: "librebaskerville-italic";
-	src: url("../fonts/librebaskerville/librebaskerville-italic-webfont.woff2") format("woff2"), 
-	     url("../fonts/librebaskerville/librebaskerville-italic-webfont.woff") format("woff");
-	font-style: normal;
-	font-weight: normal;
-}
-@font-face {
-	font-family: "librebaskerville-bold";
-	src: url("../fonts/librebaskerville/librebaskerville-bold-webfont.woff2") format("woff2"), 
-	     url("../fonts/librebaskerville/librebaskerville-bold-webfont.woff") format("woff");
-	font-style: normal;
-	font-weight: normal;
-}
 
 /* ===================================================================
  *  02. base style overrides - (_document-setup)
@@ -182,7 +141,7 @@ p.lead {
 	font-family: "montserrat-regular", sans-serif;
 	font-size: 2rem;
 	line-height: 1.8;
-	color: #4f4f4f;
+	color: White;
 	margin-bottom: 3.6rem;
 }
 
@@ -1374,7 +1333,7 @@ input::-moz-focus-inner {
 }
 
 .home-content-tablecell h3 {
-	font-family: "montserrat-bold", sans-serif;
+	font-family: 'Bree Serif', serif;
 	font-size: 1rem;
 	color: rgba(255, 255, 255, 0.35);
 	text-transform: uppercase;
@@ -1383,7 +1342,7 @@ input::-moz-focus-inner {
 }
 
 .home-content-tablecell h1 {
-	font-family: "librebaskerville-bold", serif;
+	font-family: 'Bree Serif', serif;
 	
 	line-height: 1.5;
 	color: #FFFFFF;
@@ -1397,7 +1356,7 @@ input::-moz-focus-inner {
 
 .home-content-tablecell .home-section-links li {
 	display: inline-block;
-	font-family: "montserrat-bold", sans-serif;
+	font-family: 'Bree Serif', serif;
 	font-size: 1.4rem;
 	text-transform: uppercase;
 	letter-spacing: .1rem;
@@ -1411,7 +1370,7 @@ input::-moz-focus-inner {
 }
 
 .home-content-tablecell .home-section-links a {
-	font-family: "librebaskerville-regular", serif;
+	font-family: 'Bree Serif', serif;
 	font-size: 1.8rem;
 	text-transform: none;
 	letter-spacing: 0;
@@ -2906,31 +2865,36 @@ footer .footer-social li:last-child {
 			-webkit-transform: translate3d(0, 0, 0);
 			-moz-transform: translate3d(0, 0, 0);
 			transform: translate3d(0, 0, 0);
-			transition: all 0.5s;
+			/*transition: all 0.5s;*/
 			
 			/*border: 1px solid #000;*/
 		}
 
 		.scroll__graphic p {
 			text-align: center;
-			padding: 1rem;
+			padding:1rem;
 			position: absolute;
 			top: 50%;
 			left: 50%;
 			-moz-transform: translate(-50%, -50%);
 			-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
-			font-size: 8rem;
+			font-size: 2rem;
 			font-weight: 900;
-			color: #666;
+			/*color: #666;*/
 
 		}
 
+.graphictarget{
+	transition: all 2s;
+}
+
+
 		.scroll__text {
-			position: relative;
-			padding: 0 1rem;
-			max-width: 35rem;
-            width: 40%;
+		   position: relative;
+		   padding: 0 1rem;
+	       /*max-width: 35rem;*/
+           width: 50%;
 		}
 
 		.step {
@@ -2954,28 +2918,122 @@ footer .footer-social li:last-child {
 		}
 
 
-.fade{
-	opacity: 1;
-	transition: opacity 5s;
-}
 
-.fade.is-active{
+	/*.graphictarget {
+			position: absolute;
+			right: 1rem;
+			top: 50%;
+			-moz-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+			
+		}
+*/
+#fade{
 	opacity: 0;
-	transition: opacity 0.2s;
-}
-#animate{
-    -webkit-animation: 4s ease 0s normal forwards 1 fadein;
-    animation: 2s ease 0s normal forwards 1 fadein;
+	transition: opacity .2s;
 }
 
-@keyframes fadein{
-    0% {opacity:0; }
-    66% { opacity:0; }
-    100% { opacity:1; }
+.step.is-active #fade{
+	opacity: 1;
+	transition: opacity 2s;
+	transition-delay: 3s; 
 }
 
-@-webkit-keyframes fadein{
-    0% { opacity:0; }
-    66% { opacity:0; }
-    100% { opacity:1; }
+
+#fade1{
+	opacity: 0;
+	transition: opacity .2s;
+
 }
+
+
+.step.is-active #fade1{
+	opacity: 1;
+	transition: opacity 2s;
+	transition-delay: 1s; 
+}
+
+.full-width {
+    position: relative;
+    padding: 0 1rem;
+   
+    width: 200% ! important;
+}
+
+
+ #region1{
+	opacity:0;
+	transition: .2s;
+	
+}
+
+#region2{
+	opacity:0;
+	transition: .2s;
+	
+}
+
+#region3{
+	opacity:0;
+	transition: .2s;
+	
+}
+
+#region4{
+	opacity:0;
+	transition: .2s;}
+	
+
+#region5 {
+	opacity:0;
+	transition: .2s;
+}
+
+#region6 {
+	opacity:0;
+	transition: .2s;
+}
+
+
+
+.step.is-active #region1{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 1s;
+}
+
+
+.step.is-active #region2{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 2s;
+}
+
+.step.is-active #region3{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 3s;
+}
+
+
+.step.is-active #region4{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 4s;
+}
+
+
+.step.is-active #region5{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 5s;
+}
+
+.step.is-active #region6{
+	opacity:1;
+	transition: 1s;
+	transition-delay: 6s;
+}
+
+
