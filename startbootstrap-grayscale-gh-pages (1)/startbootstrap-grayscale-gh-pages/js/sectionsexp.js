@@ -201,6 +201,102 @@ switch(stepname){
                             step.select('img').attr('src','img/east-of-miss.gif');
                             // step.select('div.graphictarget').classed("fixed",true);
         break
+
+        case '90':
+
+            step.select('img').attr('src','img/fb1.png');
+            graphic.select('div.graphictarget2').html('<div id="container2" style="min-width: 100%; height: 100%; margin: 0 auto"></div>');
+             
+Highcharts.chart('container2', {
+
+   chart:{
+   backgroundColor: '#2a2a2a'
+				        
+   },
+   title: {
+				        text: ''
+				    },
+   xAxis: {
+                plotLines:[{
+                    value:2011,
+                    color: '#000000',
+                    width:2,
+                    zIndex:4,
+                    label:{text:'2011'},
+                   dashStyle: 'Dash',
+                    gridLineWidth: 0
+                }]
+            },
+            
+    yAxis: {
+       gridLineWidth: 0
+    },  
+   
+    legend: {
+        
+        
+         itemStyle: {
+            color: '#ffffff',
+             font: '12pt Trebuchet MS,sans-serif',
+            
+            
+        }
+    },
+    
+
+    plotOptions: {
+        series: {
+            label: {
+                enabled: false
+            },
+            pointStart: 2009
+        }
+    },
+
+    series: [{
+        name: 'Heroin',
+        data: [4, 22, 40, 107],
+        color: '#FF0000'
+    }, {
+        name: 'Oxycodone and similar Opioids ',
+        data: [12,29,2,-11],
+        color: "#ffffff"
+    }],
+ tooltip: {
+				        headerFormat: '<span style="font-size:14px;color: white">{point.key}</span><br>',
+				        pointFormat: '<br><span style="color:{series.color};padding:0">{series.name}:</span> </br>' +
+				            '<span style="padding:0 ;color:{series.color}"><b>{point.y} %</b></span>',
+				        
+				        useHTML: true,
+                backgroundColor: '#000000'
+				    },
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    },
+    
+     navigation: {
+			        buttonOptions: {
+			            enabled: false
+			        }
+			    }
+
+});
+
+
+        break
+       
+
         /*
         case 'something':
             graphic.select('div.graphictarget').html('some cool tags n stuff');
