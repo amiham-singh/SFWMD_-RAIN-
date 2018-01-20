@@ -392,95 +392,14 @@ switch(stepname){
 
          case '110':
 
-            step.select('img').attr('src','img/fb1.png');
-            graphic.select('div.graphictarget4').html('<div id="container4" style="min-width: 100%; height: 100%; margin: 0 auto"></div>');
-            Highcharts.chart('container4', {
-				   chart:{
-				   backgroundColor: '#2a2a2a'					        
-				  		 },
-				   title:{
-						    text: ''
-						 },
-				   xAxis:{
-							plotLines:[{
-							             value:2011,
-							             color: '#000000',
-							             width:2,
-							             zIndex:4,
-							             label:{text:'2011'},
-							             dashStyle: 'Dash',
-							             gridLineWidth: 0
-							            }]
-				          },
-				            
-				    yAxis: {
-				       		gridLineWidth: 0
-				    		},  
-				   
-				    legend: {
-				        				        
-				         	itemStyle: {
-				            			color: '#ffffff',
-				             			font: '12pt Trebuchet MS,sans-serif'
-				             			}
-				    		},
-				    
+          
 
-				    plotOptions: {
-				        series: {
-				            label: {
-				                enabled: false
-				            },
-				            pointStart: 2009,
-				             lineWidth: 3,
-				              marker: {
-				                radius: 5
-				            }
-				        }
-				    },
+        break
 
-				    series: [{
-				        name: 'Heroin',
-				        data: [3,-14,72,52],
-				        color: '#FF0000'
-				    		  }, 
-				    		  {
-				        name: 'Oxycodone and similar Opioids ',
-				        data: [6,12,3,4],
-				        color: "#ffffff"
-				   			   }],
 
-				    tooltip: {
-								headerFormat: '<span style="font-size:14px;color: white">{point.key}</span><br>',
-								pointFormat: '<br><span style="color:{series.color};padding:0">{series.name}:</span> </br>' +
-								            '<span style="padding:0 ;color:{series.color}"><b>{point.y} %</b></span>',
-								        
-								useHTML: true,
-				                backgroundColor: '#000000'
-							  },
-				    responsive: {
-				        			rules: [{
-				            				  condition: {
-				                						maxWidth: 500
-				           								 },
-				    						  chartOptions:{
-				                					legend: {
-											                    layout: 'horizontal',
-											                    align: 'center',	
-											                    verticalAlign: 'bottom'
-				                							}
-				            								}
-				          					}]
-				                },
-				    
-				    navigation: {
-							        buttonOptions: {
-							            enabled: false
-							        				}
-							    }
+   case '120':
 
-				});
-
+           graphic.select('div.graphictarget3').html('outsde haey');
 
         break
 
@@ -497,7 +416,7 @@ switch(stepname){
 
           // FROM MIKE ↑
 		         } 	
-		}
+		
 
 		function handleContainerEnter(response) {
 			// response = { direction }
