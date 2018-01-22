@@ -10,7 +10,7 @@ var container = d3.selectAll('#scroll');
 		function handleResize() {
 			// 1. update height of step elements
 			var stepHeight = Math.floor(window.innerHeight * 0.75);
-			// step.style('height', stepHeight + 'px');
+			
 
 			// 2. update width/height of graphic element
 			var bodyWidth = d3.select('body').node().offsetWidth;
@@ -77,6 +77,9 @@ switch(stepname){
 				    title: {
 				        text: ''
 				    },
+				     credits: {
+        enabled: false
+    },
 				    subtitle: {
 				        text: ''
 				    },
@@ -296,112 +299,15 @@ switch(stepname){
 
         break
        
-        case '100':
-
-            step.select('img').attr('src','img/fb1.png');
-            graphic.select('div.graphictarget3').html('<div id="container3" style="min-width: 100%; height: 100%; margin: 0 auto"></div>');
-            Highcharts.chart('container3', {
-				   chart:{
-				   backgroundColor: '#2a2a2a'					        
-				  		 },
-				   title:{
-						    text: ''
-						 },
-				   xAxis:{
-							plotLines:[{
-							             value:2011,
-							             color: '#000000',
-							             width:2,
-							             zIndex:4,
-							             label:{text:'2011'},
-							             dashStyle: 'Dash',
-							             gridLineWidth: 0
-							            }]
-				          },
-				            
-				    yAxis: {
-				       		gridLineWidth: 0
-				    		},  
-				   
-				    legend: {
-				        				        
-				         	itemStyle: {
-				            			color: '#ffffff',
-				             			font: '12pt Trebuchet MS,sans-serif'
-				             			}
-				    		},
-				    
-
-				    plotOptions: {
-				        series: {
-				            label: {
-				                enabled: false
-				            },
-				            pointStart: 2009,
-				             lineWidth: 3,
-				              marker: {
-				                radius: 5
-				            }
-				        }
-				    },
-
-				    series: [{
-				        name: 'Heroin',
-				        data: [-5, -14, 49, 74],
-				        color: '#FF0000'
-				    		  }, 
-				    		  {
-				        name: 'Oxycodone and similar Opioids ',
-				        data: [-7,19,23,-6],
-				        color: "#ffffff"
-				   			   }],
-
-				    tooltip: {
-								headerFormat: '<span style="font-size:14px;color: white">{point.key}</span><br>',
-								pointFormat: '<br><span style="color:{series.color};padding:0">{series.name}:</span> </br>' +
-								            '<span style="padding:0 ;color:{series.color}"><b>{point.y} %</b></span>',
-								        
-								useHTML: true,
-				                backgroundColor: '#000000'
-							  },
-				    responsive: {
-				        			rules: [{
-				            				  condition: {
-				                						maxWidth: 500
-				           								 },
-				    						  chartOptions:{
-				                					legend: {
-											                    layout: 'horizontal',
-											                    align: 'center',	
-											                    verticalAlign: 'bottom'
-				                							}
-				            								}
-				          					}]
-				                },
-				    
-				    navigation: {
-							        buttonOptions: {
-							            enabled: false
-							        				}
-							    }
-
-				});
+        
 
 
+case '120':
+           
+            step.select('img').attr('src','img/plains.png');
+            
         break
-
-         case '110':
-
-          
-
-        break
-
-
-   case '120':
-
-           graphic.select('div.graphictarget3').html('outsde haey');
-
-        break
+     
 
 
         /*
@@ -416,7 +322,7 @@ switch(stepname){
 
           // FROM MIKE ↑
 		         } 	
-		
+		}
 
 		function handleContainerEnter(response) {
 			// response = { direction }
@@ -459,3 +365,165 @@ switch(stepname){
 
 		// kick things off
 		init();
+
+//SWIPE 
+
+
+var getData = function(i) {
+    var dataset = [
+        [4, -22, 40, 107],
+        [12,29,2,-11],
+        [-5, -14, 49, 74],
+        [-7,19,23,-6],
+        [3, -14, 72, 52],
+        [6,12,3,4],
+
+      
+    ];
+    if (!dataset[i]) {
+        return dataset[0];
+    }
+    return dataset[i];
+};
+
+// Create dynamic desktop chart
+var chart = $('.chart').highcharts({
+      chart:{
+                   backgroundColor: '#2a2a2a'                           
+                         },
+                   title:{
+                            text: ''
+                         },
+                          credits: {
+        enabled: false
+    },
+                   xAxis:{
+                            plotLines:[{
+                                         value:2011,
+                                         color: '#000000',
+                                         width:2,
+                                         zIndex:4,
+                                         label:{text:'2011'},
+                                         dashStyle: 'Dash',
+                                         gridLineWidth: 0
+                                        }]
+                          },
+                            
+                    yAxis: {
+                            gridLineWidth: 0,
+                            max: 110,
+                            min:-25
+                            },  
+                   
+                    legend: {
+                                                
+                            itemStyle: {
+                                        color: '#ffffff',
+                                        font: '12pt Trebuchet MS,sans-serif'
+                                        }
+                            },
+                    
+
+                    plotOptions: {
+                        series: {
+                            label: {
+                                enabled: false
+                            },
+                            pointStart: 2009,
+                             lineWidth: 3,
+                              marker: {
+                                radius: 5
+                            }
+                        }
+                    },
+
+                    series: [{
+                        name: 'Heroin',
+                        data: [-5, -14, 49, 74],
+                        color: '#FF0000'
+                              }, 
+                              {
+                        name: 'Oxycodone and similar Opioids ',
+                        data: [-7,19,23,-6],
+                        color: "#ffffff"
+                               }],
+
+                    tooltip: {
+                                headerFormat: '<span style="font-size:14px;color: white">{point.key}</span><br>',
+                                pointFormat: '<br><span style="color:{series.color};padding:0">{series.name}:</span> </br>' +
+                                            '<span style="padding:0 ;color:{series.color}"><b>{point.y} %</b></span>',
+                                        
+                                useHTML: true,
+                                backgroundColor: '#000000'
+                              },
+                    responsive: {
+                                    rules: [{
+                                              condition: {
+                                                        maxWidth: 500
+                                                         },
+                                              chartOptions:{
+                                                    legend: {
+                                                                layout: 'horizontal',
+                                                                align: 'center',    
+                                                                verticalAlign: 'bottom'
+                                                            }
+                                                            }
+                                            }]
+                                },
+                    
+                    navigation: {
+                                    buttonOptions: {
+                                        enabled: false
+                                                    }
+                                }
+
+
+
+}).highcharts();
+
+// Create carousel for mobile
+var carousel = $(".owl-carousel").owlCarousel({
+    items: 1,
+    onChanged: function(event) {
+        console.log('Slide '+event.item.index+' triggered')
+        var dex =  event.item.index+1;
+        console.log('event index '+event.item.index+'other' + dex)
+        var Hdata = getData(event.item.index);
+        var Odata = getData(dex);
+        chart.series[0].setData(Hdata);
+        chart.series[1].setData(Odata);
+    }
+});
+var col = text.selectAll('.rightcol');
+// Create new TwoStep instance
+var ts = new TwoStep({
+    elements: document.querySelectorAll('.desktop-narrative .narrative-item'),
+    onChange: function(event) {
+        console.log('Waypoint '+event.index+' triggered')
+        var dex =  event.index+1;
+        var Hdata = getData(event.index);
+        var Odata = getData(dex);
+        chart.series[0].setData(Hdata);
+        chart.series[1].setData(Odata);
+        col.select('img').attr('src','img/fb'+dex+'.png');
+        console.log(col);
+    },
+    stick: document.querySelector('.rightcol'),
+});
+
+function checkSize() {
+    // if desktop...
+    if ($(window).width() > 700) {
+        ts.enable();
+        $('.narrative-item').css('padding-top', '');
+    // if mobile...
+    } else {
+        ts.disable();
+        $('.narrative-item').css('padding-top', chart.chartHeight);
+    }
+}
+
+// Check current screen size
+// and set up event listener for future changes
+checkSize();
+$(window).resize(checkSize);

@@ -423,60 +423,65 @@ body {
     top:20px;
 }
 
-#scroll2 {
-      position: relative;
-      border-top: 2px dashed #000;
-      border-bottom: 2px dashed #000;
+
+
+    .parent {
+    display: flex;
+    /*padding-top: 2rem;*/
+    /*max-width: 800px;
+    margin: 50px auto;*/
+}
+.narrative {
+    width: 50%;
+}
+.narrative-item {
+    min-height: 300px;
+    opacity: 0.05;
+    transition: all 1s;
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+.narrative-item.active {
+    color: white;
+    opacity: 1;
+}
+.rightcol {
+    width: 50%;
+    margin-top: -6rem;
+}
+.chart{
+  /*padding-top:2rem;*/
+  background: #2a2a2a !important;
+
+}
+.mobile-chart {
+    display: none;
+}
+.parent .mobile-narrative {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .parent {
+        position: relative;
     }
-
-
-    .scroll__graphic2 {
-      position: -webkit-sticky;
-      position: sticky;
-      float: right;
-      top: 5rem;
-      right: 2rem;
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      
-      border: 1px solid #000;
+    .narrative {
+        display: none;
     }
-
-    .scroll__graphic2 p {
-      text-align: center;
-      padding: 1rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -moz-transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      font-size: 8rem;
-      font-weight: 900;
-      color: #666;
+    .parent .mobile-narrative {
+        display: block;
+        width: 100%;
     }
-        
-
-    .scroll__text2 {
-      position: relative;
-      padding: 0 1rem;
-     
+    .rightcol {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
     }
-
-
-  .step2 {
-      margin: 0 auto 2rem auto;
-
-      transition: all .2s;
-      align-content: center;
-      opacity: 0.05;
-      border: 1px solid blue;
+    .narrative-item {
+        color: white;
+        height: auto;
+        font-size: 1rem;
+        opacity: 1;
     }
-
-   
-
-    .step2.is-active{
-      opacity: 1;
-      transition: all 1s;
-    }
+}
