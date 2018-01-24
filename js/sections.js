@@ -39,7 +39,7 @@ var container = d3.selectAll('#scroll');
 			step.classed('is-active', function (d, i) {
 				return i === response.index;
 			})
-   //          fade.classed('is-active', function (d, i) {
+   //          graphic.classed('is-active', function (d, i) {
 			// 	return i === response.index;
 			// })
 
@@ -186,11 +186,13 @@ step.select('img').attr('src','../sticky-js/finals maps/map/black-base.png');
 
 
          case '30': 
-                            step.select('img').attr('src','../sticky-js/finals maps/price.png');
+                            graphic.select('div.graphictarget').html('<img src="../sticky-js/finals maps/price.png">');
+                            step.select('img').attr('src','');
         break
-
+        break
         case '70': 
-                            step.select('img').attr('src','../sticky-js/finals maps/Heroin.png');
+        					graphic.select('div.graphictarget').html('');
+                            step.select('img').attr('src','../sticky-js/finals maps/base.gif');
         break
        
         /*
