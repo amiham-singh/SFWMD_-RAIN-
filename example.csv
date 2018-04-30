@@ -3,7 +3,7 @@ date,title,body,media,source,type
 7/29/2014,Separate file,"CSV's are separate files from the page so we need a way to get their data on the page for Tik Tok to use.   In this example, we are using <a href='https://jquery.com/' target='_blank'>jQuery</a> to do that.",,,
 9/20/2014,CSV options,"As your CSV could actually have any delimiter such as a pipe (|), there are a couple options to handle this. <code>csvDelimiter</code> will change which character separates a field; the default is a comma (,).  And <code>csvQuote</code> which tells Tik Tok which character wraps a field; the default is the double quote ("").",,,
 10/8/2014,Some more content,<p>This is an example of some more content from the CSV.</p><p>As well as some media included.</p>,https://placekitten.com/1210/400,More PlaceKitten images,
-10/18/2015,tweet1,<p>This is an example of some more content from the CSV.</p><p>As well as some media included.</p>,https://twitter.com/CuteEmergency/status/990764040837312512,,Tweet
+10/18/2015,tweet1,<p>This is an example of some more content from the CSV.</p><p>As well as some media included.</p>,https://twitter.com/CuteEmergency/status/990764040837312512,,embed
 11/19/2015,tweet2,<p>This is an example of some more content from the CSV.</p><p>As well as some media included.</p>,"https://twitter.com/amiham_singh/status/989927676088434688?ref_src=twsrc%5Etfw
 ",,embed
 12/20/2015,tweet3,"h1>Hey, what kinda party is this? There's no booze and only one hooker.</h1>
